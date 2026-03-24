@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sketch</title>
+    
+    <!-- 解決 favicon.ico 找不到的警告 -->
+    <link rel="icon" href="data:,">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /* 隱藏瀏覽器預設捲軸 */
+      }
+      /* 設定背景 iframe 充滿整個視窗並置於底層 */
+      #bg-iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        border: none;
+        z-index: -1;
+      }
+      /* 讓 canvas 可以被穿透，這樣才能正常點擊與操作下方的 iframe */
+      canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 1;
+      }
+    </style>
+
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+  </head>
+
+  <body>
+    <!-- 產生連結到指定網址的 iframe -->
+    <iframe id="bg-iframe" src="https://www.tku.edu.tw/"></iframe>
+
+    <script src="sketch.js"></script>
+  </body>
+</html>
